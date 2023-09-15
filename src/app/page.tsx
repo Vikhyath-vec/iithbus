@@ -51,7 +51,7 @@ const Page = () => {
     setCurrentTime(`${hours}:${minutes}:${seconds}`);
   };
 
-  const handleOptionChange = (e) => {
+  const handleOptionChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setSelectedOption(e.target.value);
     // Update next results when the selected option changes
     updateNextResults(data);
