@@ -1,5 +1,5 @@
 'use client';
-
+/* eslint-disable padded-blocks */
 import React, { useState, useEffect } from 'react';
 
 const Page = () => {

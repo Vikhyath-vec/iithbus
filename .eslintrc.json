@@ -1,8 +1,4 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": {
-    "react-hooks/exhaustive-deps": ["warn", {
-      "additionalHooks": "(updateNextResults)"
-    }]
-  }
+  
 }
