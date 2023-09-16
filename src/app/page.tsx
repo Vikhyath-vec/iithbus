@@ -5,8 +5,13 @@ import React, { useState, useEffect } from 'react';
 const Page = () => {
   const [data, setData] = useState([]);
   const [selectedOption, setSelectedOption] = useState("main gate to hostel circle");
-  const [currentTime, setCurrentTime] = useState("");
-  const [nextResults, setNextResults] = useState([]);
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  const initialTime = `${hours}:${minutes}:${seconds}`;
+  const [currentTime, setCurrentTime] = useState(initialTime);
+  const [nextResults, setNextResults] = useState<string[]>([]);
 
   useEffect(() => {
     // Fetch data from the JSON file
@@ -32,7 +37,7 @@ const Page = () => {
   }, [selectedOption]);
 
   // Function to update the next 10 results
-  const updateNextResults = (selectedData) => {
+  const updateNextResults = (selectedData : string[]) => {
     const currentIndex = selectedData.findIndex((time) => time >= currentTime);
     if (currentIndex === -1) {
       setNextResults([]);
@@ -49,6 +54,7 @@ const Page = () => {
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
     setCurrentTime(`${hours}:${minutes}:${seconds}`);
+    // updateNextResults(data);
   };
 
   const handleOptionChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
