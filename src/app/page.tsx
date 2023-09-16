@@ -63,6 +63,35 @@ const Page = () => {
     updateNextResults(data);
   };
 
+  const displayAllTimings = () => {
+    return (
+      <div className="ml-5 mt-4 mr-5 max-h-64 overflow-y-scroll">
+        <style>
+          {`
+            /* Style the scrollbar for Webkit (Chrome, Safari) */
+            ::-webkit-scrollbar {
+              width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+              background: #f1f1f1;
+            }
+            ::-webkit-scrollbar-thumb {
+              background: #888;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+              background: #555;
+            }
+          `}
+        </style>
+        <ul>
+          {data.map((time, index) => (
+            <li key={index}>{time}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-2xl font-bold mb-4 ml-5">Bus Schedule</h1>
@@ -91,6 +120,10 @@ const Page = () => {
           <li key={index}>{time}</li>
         ))}
       </ul>
+      <div className="ml-5 mt-4 max-h-64">
+        <h2 className="text-xl font-semibold mb-2">All Timings for {selectedOption}:</h2>
+      </div>
+      {displayAllTimings()}
     </div>
   );
 };
