@@ -107,9 +107,9 @@ const Page = () => {
         >
            <option value="main gate to hostel circle">Main Gate to Hostel Circle</option>
           <option value="hostel circle to main gate">Hostel Circle to Main Gate</option>
-          <option value="hostel circle to new hostels">Hostel Circle to New Hostels</option>
+          {/* <option value="hostel circle to new hostels">Hostel Circle to New Hostels</option>
           <option value="new hostels to hostel circle">New Hostels to Hostel Circle</option>
-          <option value="hospital to trp">Hospital to TRP</option>
+          <option value="hospital to trp">Hospital to TRP</option> */}
         </select>
       </div>
       <h2 className="text-xl font-semibold mb-2 ml-5">Selected Path: {selectedOption}</h2>
